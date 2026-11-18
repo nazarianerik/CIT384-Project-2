@@ -1,0 +1,212 @@
+/* GIGA PET – styles */
+/* Theme: black, gray, white */
+
+
+/* Page basics */
+
+/* Width and height include padding and border */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 25px;
+  background-color: #f2f2f2; /* light gray */
+  color: #111;               /* near black */
+}
+
+header {
+  border-bottom: 1px solid #111;
+}
+
+h1 {
+  font-weight: bold;
+  color: #111;
+}
+
+/* Picture and dashboard side by side, dashboard wraps below when there's no room */
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* Pet picture */
+
+/* Hides anything sticking out (stretched chubby picture) */
+.pet-image-container {
+  max-width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+/* 1125 x 750, shrinks on small screens, height: auto keeps its shape */
+.pet-image {
+  display: block;
+  width: 1125px;
+  max-width: 100%;
+  height: auto;
+  transition: all 0.4s ease; /* smooth mood changes */
+}
+
+
+/* Mood effects (added and removed by .toggleClass() in script.js) */
+
+/* Happy: bounces up and down */
+.pet-image.happy {
+  animation: bounce 0.4s ease infinite alternate;
+}
+
+/* Moves the picture up 12px */
+@keyframes bounce {
+  from {
+    translate: 0px 0px;
+  }
+  to {
+    translate: 0px -12px;
+  }
+}
+
+/* Sad: grayer, darker, sinks 8px and tilts */
+.pet-image.sad {
+  filter: grayscale(70%) brightness(0.7);
+  translate: 0px 8px;
+  rotate: -3deg;
+}
+
+/* Chubby: 15% wider, same height */
+.pet-image.chubby {
+  scale: 1.15 1;
+}
+
+/* Hungry: dashed outline around Weight */
+/* Outline doesn't move the text, stays invisible until hungry */
+.weight-stat {
+  outline: 3px dashed transparent;
+  outline-offset: 2px;
+}
+
+.weight-stat.hungry {
+  outline-color: #111;
+}
+
+
+/* Dashboard */
+
+.dashboard {
+  max-width: 760px;
+  padding: 20px;
+}
+
+
+/* Picture buttons */
+
+/* Buttons in a row, wrap to a new row if needed */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Picture on top, label below */
+.button-container button {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  font-family: inherit;
+  color: #fafafa;
+  background-color: #000;  /* matches the black picture backgrounds */
+  border: 2px solid #555;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  border-color: #fafafa;
+}
+
+.button-container button img {
+  width: 150px;
+  height: auto;
+}
+
+.button-label {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+/* Mute button */
+
+.mute-button {
+  margin-top: 14px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #fafafa;
+  background-color: #333;
+  border: 2px solid #555;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mute-button:hover {
+  border-color: #fafafa;
+}
+
+
+/* Pet comments */
+
+.pet-messages {
+  margin-top: 20px;
+}
+
+/* White rounded bubble, only as wide as its text */
+.pet-bubble {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 14px;
+  animation: slide-in 0.4s ease;
+}
+
+/* Fades in and slides up 12px */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    translate: 0px 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0px 0px;
+  }
+}
+
+
+/* Phones (600px wide or less) */
+
+@media (max-width: 600px) {
+  body {
+    margin: 16px;
+  }
+
+  .dashboard {
+    padding: 10px 0;
+  }
+
+  /* Two buttons per row */
+  .button-container button {
+    width: 48%;
+  }
+
+  .button-container button img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Giga Pet</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Your pet: Sibil
+      </h1>
+    </header>
+
+    <main>
+      <!-- Pet picture (mood classes added by script.js) -->
+      <section class="pet-image-container">
+        <img class="pet-image" src="images/Sibil.jpeg" alt="Sibil, your Giga Pet">
+      </section>
+
+      <section class="dashboard">
+        <div>Name: <strong><span class="name"></span></strong></div>
+        <div class="weight-stat">Weight: <strong><span class="weight"></span> pounds</strong></div>
+        <div>Happiness: <strong><span class="happiness"></span> purrs (per min)</strong></div>
+        <!-- Energy: up with Sleep, down with Play and Exercise -->
+        <div>Energy: <strong><span class="energy"></span> / 100</strong></div>
+
+        <!-- Picture buttons with labels (alt is empty since the label names the button) -->
+        <div class="button-container">
+          <button class="treat-button">
+            <img src="images/treat.PNG" alt="">
+            <span class="button-label">Treat</span>
+          </button>
+          <button class="play-button">
+            <img src="images/play.PNG" alt="">
+            <span class="button-label">Play</span>
+          </button>
+          <button class="exercise-button">
+            <img src="images/exercise.PNG" alt="">
+            <span class="button-label">Exercise</span>
+          </button>
+          <button class="sleep-button">
+            <img src="images/sleep.PNG" alt="">
+            <span class="button-label">Sleep</span>
+          </button>
+        </div>
+
+        <!-- Purr sound on/off -->
+        <button class="mute-button">Mute purring</button>
+
+        <!-- Pet comments go here (added with .append()) -->
+        <div class="pet-messages"></div>
+      </section>
+    </main>
+
+    <!-- jQuery (loaded over https) -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+  </body>
+</html>
